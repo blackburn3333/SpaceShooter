@@ -19,9 +19,11 @@ public class ShipGun : MonoBehaviour {
 
     public GameObject hitEffect;
     public GameObject ExplosionhitEffect;
-    public GameObject ExplosionhitEffectBlue;
+    //public GameObject ExplosionhitEffectBlue;
 
-    
+    public AudioSource laserSound;
+    public AudioSource stoneExplosion;
+
     public Text ammoCounter;
     // Use this for initialization
 
@@ -43,6 +45,7 @@ public class ShipGun : MonoBehaviour {
             if (Input.GetButtonDown("Fire1"))
             {
                 currentAmmo--;
+                laserSound.Play();
                 fire();
             }
         }
@@ -78,7 +81,9 @@ public class ShipGun : MonoBehaviour {
                 else if(hitCount <= 1)
                 {
                     hitCount = 2;
+                    stoneExplosion.Play();
                     Destroy(Instantiate(ExplosionhitEffect, gunHit.point, Quaternion.LookRotation(gunHit.normal)), 2f);
+                    //Destroy(Instantiate(stoneExplosion, gunHit.point, Quaternion.LookRotation(gunHit.normal)), 2f);
                     //Destroy(Instantiate(ExplosionhitEffectBlue, gunHit.point, Quaternion.LookRotation(gunHit.normal)), 2f);
                 }
             }
