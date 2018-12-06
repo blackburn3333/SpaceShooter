@@ -14,3 +14,5 @@ this includes
 - Explosion
 - Simple UI
 - Particles
+- Shooting Sound
+- Explosion sound
